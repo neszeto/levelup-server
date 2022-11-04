@@ -1,0 +1,26 @@
+[
+    {
+        "model": "levelupapi.game",
+        "pk": 1,
+        "fields": {
+            "game_type": 1,
+            "title": "Clue",
+            "maker": "Anthony Pratt",
+            "gamer": 1,
+            "number_of_players": 5,
+            "skill_level": 1
+        }
+    },
+    {
+        "model": "levelupapi.game",
+        "pk": 2,
+        "fields": {
+            "game_type": 3,
+            "title": "World of Warcraft",
+            "maker": "Blizzard Entertainment",
+            "gamer": 1,
+            "number_of_players": 50,
+            "skill_level": 2
+        }
+    }
+]

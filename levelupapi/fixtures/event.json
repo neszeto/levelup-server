@@ -1,0 +1,26 @@
+[
+    {
+        "model": "levelupapi.event",
+        "pk": 1,
+        "fields": {
+            "game": 1,
+            "description": "Wine and board game night", 
+            "date": "2022-11-02",
+            "time": "14:30:59",
+            "organizer": 1,
+            "gamers": []
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 2,
+        "fields": {
+            "game": 2,
+            "description": "Meet online for some games", 
+            "date": "2022-11-05",
+            "time": "19:30:00",
+            "organizer": 1,
+            "gamers": []
+        }
+    }
+]
