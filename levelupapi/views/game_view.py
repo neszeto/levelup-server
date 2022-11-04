@@ -42,9 +42,27 @@ class GameView(ViewSet):
         serializer = GameSerializer(game)
         return Response(serializer.data)
 
+    def update(self, request, pk):
+        """handle PUT requests for games"""
+
+        game = Game.objects.get(pk=pk) #this creates an instance of the game and gamer is already on it so no need to change it because theres no way a client can change the value
+        game.title = request.data["title"]
+        game.maker = request.data["maker"]
+        game.number_of_players = request.data["numberOfPlayers"]
+        game.skill_level = request.data["skillLevel"]
+
+        game_type = GameType.objects.get(pk=request.data["gameType"])
+        game.game_type = game_type
+        game.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+
+
 class GameSerializer(serializers.ModelSerializer):
     """JSON serializer for games"""
     class Meta:
         model = Game
         fields = ('id', 'game_type', 'title', 'maker', 'gamer', 'number_of_players', 'skill_level')
+        depth = 1
 

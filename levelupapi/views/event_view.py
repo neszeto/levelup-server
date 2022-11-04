@@ -43,6 +43,19 @@ class EventView(ViewSet):
         serializer = EventSerializer(event)
         return Response(serializer.data)
 
+    def update(self, request, pk):
+        """handles PUT request to events"""
+
+        event = Event.objects.get(pk=pk)
+        event.game = Game.objects.get(pk=request.data["game"])
+        event.description = request.data["description"]
+        event.date = request.data["date"]
+        event.time = request.data["time"]
+        event.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+        
 class EventSerializer(serializers.ModelSerializer):
     """JSON serializer for events"""
     class Meta:
